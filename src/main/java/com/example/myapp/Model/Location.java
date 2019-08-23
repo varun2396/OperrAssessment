@@ -10,7 +10,7 @@ public class Location {
 	private double latitude;
 	private double longitude;
     private double position[];
-    
+ 
     public Location(ObjectId _id, String name, double latitude, double longitude, double[] position) {
 		this._id = _id;
 		this.name = name;

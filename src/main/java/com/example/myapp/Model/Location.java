@@ -1,23 +1,31 @@
 package com.example.myapp.Model;
 
+import org.bson.types.ObjectId;
+import org.springframework.data.annotation.Id;
+
 public class Location {
-	private int Id;
+	@Id
+	private ObjectId _id;
 	private String name;
 	private double latitude;
 	private double longitude;
-	
-	public Location(int id, String name, double latitude, double longitude) {
-		Id = id;
+    private double position[];
+    
+    public Location(ObjectId _id, String name, double latitude, double longitude, double[] position) {
+		this._id = _id;
 		this.name = name;
 		this.latitude = latitude;
 		this.longitude = longitude;
+		this.position = new double[]{latitude,longitude};
 	}
-	
-	public int getId() {
-		return Id;
+
+    
+    
+	public ObjectId get_id() {
+		return _id;
 	}
-	public void setId(int id) {
-		Id = id;
+	public void set_id(ObjectId _id) {
+		this._id = _id;
 	}
 	public String getName() {
 		return name;
@@ -30,12 +38,16 @@ public class Location {
 	}
 	public void setLatitude(double latitude) {
 		this.latitude = latitude;
+		this.position[0] = latitude;
 	}
 	public double getLongitude() {
 		return longitude;
 	}
 	public void setLongitude(double longitude) {
 		this.longitude = longitude;
+		this.position[1] = longitude;
 	}
+	
+	
 	
 }
